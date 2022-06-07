@@ -11,116 +11,36 @@
   </thead>
 
   <tbody>
-    <tr>
-      <td>リーダブルコード</td>
-      <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
-      <td>
-        <a class = "show_76318" href = "/books/76318">Show</a>
-      </td>
-      <td>
-        <a class = "edit_76318" href = "/books/76318/edit" >Edit</a>
-      </td>
-      <td>
-        <a date_confim = "Are you sure?" class = "deitroy_76318" rel ="nofollw" datamethod = "delete" href = "books/76318">Destroy</a>
-      </td>
-    </tr>
 
+    <% @books.each do |book| %>
     <tr>
-      <td>トラブル知らずのシステム設計</td>
-      <td>システム設計の要点を図解で説明してくれます</td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
       <td>
-        <a class = "show_76319" href = "/books/76319">Show</a>
+        <%= link_to "Show", book_path(book.id) %>
       </td>
       <td>
-        <a class = "edit_76319" href = "/books/76319/edit" >Edit</a>
+        <%= link_to "Edit", "/books/#{@book.id}/edit" %>
       </td>
       <td>
-        <a date_confim = "Are you sure?" class = "deitroy_76319" rel ="nofollw" datamethod = "delete" href = "books/76319">Destroy</a>
+        <%= link_to "Destroy", "/destroy" %>
       </td>
     </tr>
-
-    <tr>
-      <td>たのしいRuby</td>
-      <td>Rubyの入門におすすめです</td>
-      <td>
-        <a class = "show_76320" href = "/books/76320">Show</a>
-      </td>
-      <td>
-        <a class = "edit_76320" href = "/books/76320/edit" >Edit</a>
-      </td>
-      <td>
-        <a date_confim = "Are you sure?" class = "deitroy_76320" rel ="nofollw" datamethod = "delete" href = "books/76320">Destroy</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td>入門Git</td>
-      <td>gitについての基本操作から内部構造まで解説してくれます</td>
-      <td>
-        <a class = "show_76321" href = "/books/76321">Show</a>
-      </td>
-      <td>
-        <a class = "edit_76321" href = "/books/76321/edit" >Edit</a>
-      </td>
-      <td>
-        <a date_confim = "Are you sure?" class = "deitroy_76321" rel ="nofollw" datamethod = "delete" href = "books/76321">Destroy</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td>アルゴリズム図鑑</td>
-      <td>アルゴリズムについてカラーイラストでしっかり解説してくれます</td>
-      <td>
-        <a class = "show_76322" href = "/books/76322">Show</a>
-      </td>
-      <td>
-        <a class = "edit_76322" href = "/books/76322/edit" >Edit</a>
-      </td>
-      <td>
-        <a date_confim = "Are you sure?" class = "deitroy_76322" rel ="nofollw" datamethod = "delete" href = "books/76322">Destroy</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td>達人プログラマー</td>
-      <td>プログラマ入門者は必読！</td>
-      <td>
-        <a class = "show_76323" href = "/books/76323">Show</a>
-      </td>
-      <td>
-        <a class = "edit_76323" href = "/books/76323/edit" >Edit</a>
-      </td>
-      <td>
-        <a date_confim = "Are you sure?" class = "deitroy_76323" rel ="nofollw" datamethod = "delete" href = "books/76323">Destroy</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td>データベース実践入門</td>
-      <td>効率的なSQL文を教えてくれます</td>
-      <td>
-        <a class = "show_76324" href = "/books/76324">Show</a>
-      </td>
-      <td>
-        <a class = "edit_76324" href = "/books/76324/edit" >Edit</a>
-      </td>
-      <td>
-        <a date_confim = "Are you sure?" class = "deitroy_76324" rel ="nofollw" datamethod = "delete" href = "books/76324">Destroy</a>
-      </td>
-    </tr>
+    <% end %>
   </tbody>
 </table>
 
 <h2>New book</h2>
-<%= form_with model: @book,　id: 'new_book', class: 'new_book' do |f| %>
+<%= form_with model: @book, url: books_path do |f| %>
+
  <div class="field">
-  <%= f.label :book_title, 'Title' %>
-  <%= f.text_field :book_title, class: 'book_title'%>
+  <%= f.label :title　%>
+  <%= f.text_field :title %>
  </div>
 
  <div class="field">
-  <%= f.label :book_body, 'Body' %>
-  <%= f.text_area :book_body, class: 'book_body' %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
  </div>
 
  <div class="actions">
