@@ -15,6 +15,7 @@
  */
 
 
+
 body{
   background-color: #fff;
   color: #333;
@@ -45,8 +46,18 @@ div.field,div.actions{
   margin-bottom: 10px;
 }
 
-
-
 label{
   display: block;
+}
+
+.margin-reset{
+  margin-top:0;
+}
+
+a:visited{
+    color:#666
+}
+
+#notice{
+    color:green
 }

@@ -12,6 +12,15 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+  　  <p id="notice" class= "margin-reset">
+     <%= flash[:notice] %>
+     </p>
+    <% end %>
+
     <%= yield %>
+
+
+
   </body>
 </html>
